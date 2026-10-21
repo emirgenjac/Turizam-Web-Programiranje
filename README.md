@@ -72,4 +72,5 @@ Zatim u browseru: [http://localhost:8080/a](http://localhost:8080/a)
 
 ## Screenshot
 
-![Lista destinacija](screenshot.png)
+![Lista destinacija](screenshot1.png)
+![Lista tura](screenshot2.png)
