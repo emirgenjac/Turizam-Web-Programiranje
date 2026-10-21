@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Destinacije</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        nav a { margin-right: 16px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 16px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background: #eee; }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="/a">Destinacije</a>
+    <a href="/b">Ture</a>
+</nav>
+<h1>Destinacije</h1>
+<table>
+    <tr>
+        <th>Naziv</th>
+        <th>Država</th>
+        <th>Opis</th>
+        <th>Rezervacije</th>
+        <th>Ture</th>
+        <th>Akcija</th>
+    </tr>
+    <tr th:each="d : ${destinations}">
+        <td th:text="${d.name}"></td>
+        <td th:text="${d.country}"></td>
+        <td th:text="${d.description}"></td>
+        <td th:text="${d.bookings}"></td>
+        <td>
+            <span th:each="t, stat : ${d.tours}">
+                <span th:text="${t.name}"></span>
+                <span th:if="${!stat.last}">, </span>
+            </span>
+        </td>
+        <td>
+            <a th:href="@{/a/action/{id}(id=${d.id})}">Rezerviši</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

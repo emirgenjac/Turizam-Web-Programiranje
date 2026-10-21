@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rezervacija</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        nav a { margin-right: 16px; }
+        ul { margin-top: 8px; }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="/a">Destinacije</a>
+    <a href="/b">Ture</a>
+</nav>
+<div th:if="${destination != null}">
+    <h1 th:text="'Rezervacija: ' + ${destination.name}"></h1>
+    <p>Rezervacija je zabilježena.</p>
+    <p>Broj rezervacija: <strong th:text="${destination.bookings}"></strong></p>
+    <h2>Ture na ovoj destinaciji</h2>
+    <ul>
+        <li th:each="t : ${destination.tours}"
+            th:text="${t.name} + ' (' + ${t.durationDays} + ' dan, ' + ${t.price} + ' KM)'"></li>
+    </ul>
+</div>
+<div th:if="${destination == null}">
+    <h1>Destinacija nije pronađena</h1>
+</div>
+</body>
+</html>

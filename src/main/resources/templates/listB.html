@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ture</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        nav a { margin-right: 16px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 16px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background: #eee; }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="/a">Destinacije</a>
+    <a href="/b">Ture</a>
+</nav>
+<h1>Ture</h1>
+<table>
+    <tr>
+        <th>Naziv</th>
+        <th>Trajanje (dani)</th>
+        <th>Cijena</th>
+        <th>Tip</th>
+        <th>Destinacija</th>
+    </tr>
+    <tr th:each="t : ${tours}">
+        <td th:text="${t.name}"></td>
+        <td th:text="${t.durationDays}"></td>
+        <td th:text="${t.price}"></td>
+        <td th:text="${t.type}"></td>
+        <td th:text="${t.destinationName}"></td>
+    </tr>
+</table>
+</body>
+</html>
