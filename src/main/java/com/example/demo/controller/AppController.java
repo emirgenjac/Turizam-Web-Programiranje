@@ -22,12 +22,6 @@ public class AppController {
         return "listA";
     }
 
-    @GetMapping("/b")
-    public String listB(Model model) {
-        model.addAttribute("tours", DemoData.getTours());
-        return "listB";
-    }
-
     @GetMapping("/a/action/{id}")
     public String action(@PathVariable Long id, Model model) {
         Destination destination = DemoData.findDestinationById(id);
