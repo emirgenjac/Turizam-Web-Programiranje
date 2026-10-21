@@ -17,6 +17,11 @@
     <a href="/b">Ture</a>
 </nav>
 <h1>Ture</h1>
+<form action="/b" method="get">
+    <input type="text" name="destinacija" th:value="${destinacija}" placeholder="npr. Sarajevo">
+    <button type="submit">Filtriraj</button>
+    <a href="/b">Sve ture</a>
+</form>
 <table>
     <tr>
         <th>Naziv</th>

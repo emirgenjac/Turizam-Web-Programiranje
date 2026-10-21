@@ -61,4 +61,14 @@ public class DemoData {
         }
         return null;
     }
+
+    public static List<Tour> findToursByDestination(String name) {
+        List<Tour> result = new ArrayList<>();
+        for (Tour t : tours) {
+            if (t.getDestinationName().equalsIgnoreCase(name)) {
+                result.add(t);
+            }
+        }
+        return result;
+    }
 }
